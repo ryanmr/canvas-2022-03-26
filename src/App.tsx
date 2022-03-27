@@ -83,11 +83,13 @@ function setup() {
     intersections.push([a, b]);
 
     draw();
+
+    requestAnimationFrame(animate);
   }
 
-  const interval = setInterval(animate, 250);
+  const handle = requestAnimationFrame(animate);
 
-  return { canvas, ctx, interval, clear };
+  return { canvas, ctx, interval: handle, clear };
 }
 
 export default function App() {
